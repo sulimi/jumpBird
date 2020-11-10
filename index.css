@@ -1,0 +1,106 @@
+/* 整体大小 */
+.game {
+    width: 800px;
+    height: 600px;
+    border: 2px solid;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+/* 游戏背景 天空 */
+.game .sky {
+    /*背景图片*/
+    background: url("./img/sky.png");
+    height: 100%;
+    /* 游戏进行中有向右移动，100%会出现白边，设置200%滚动方便一点，图片会重复 */
+    width: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* 大地 */
+.game .land {
+    background: url("./img/land.png");
+    height: 112px;
+    width: 200%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+/* 鸟 雪碧图 有三张翅膀不同状态的位置  js添加class名切换状态*/
+.game .bird {
+    background: url("./img/bird.png");
+    position: absolute;
+    width: 33px;
+    height: 26px;
+    /* 初始位置 */
+    left: 150px;
+    top: 150px;
+}
+/* 鸟 开始 */
+.game .bird.swing1{
+    background-position: -8px -10px;
+}
+/* 鸟 飞行 */
+.game .bird.swing2{
+    background-position: -60px -10px;
+}
+/* 鸟 结束 */
+.game .bird.swing3{
+    background-position: -113px -10px;
+}
+/* 水管  js添加 js控制横坐标、高度 */
+.pipe{
+    position: absolute;
+    height: 100px;
+    width: 52px;
+    left: 500px;
+}
+/* 上水管 */
+.pipe.up{
+    background: url("./img/pipeDown.png");
+    top: 0;
+    /*背景图和容器底边对其*/
+    background-position: bottom;
+}
+/* 下水管 */
+.pipe.down{
+    background: url("./img/pipeUp.png");
+    bottom: 112px;
+}
+/* 游戏文字说明样式 */
+.info{
+    text-align: center;
+}
+
+/*我自己做一个游戏提示文字*/
+.game.gameover:after {
+    content: "游 戏 结 束";
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 40px;
+    line-height: 50px;
+    color: aliceblue;
+}
+.game.stop:after {
+    content: "游 戏 暂 停";
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 40px;
+    line-height: 50px;
+    color: aliceblue;
+}
